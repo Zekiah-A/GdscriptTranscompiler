@@ -25,6 +25,7 @@
         OnReady,
         Extends,
         Preload,
-        Continue
+        Continue,
+        Identifier
     }
 }
