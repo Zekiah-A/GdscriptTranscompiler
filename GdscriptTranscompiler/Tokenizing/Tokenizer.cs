@@ -24,6 +24,18 @@ namespace GdscriptTranscompiler.Tokenizing
         {
             var tokens = new List<Token>();
 
+            while (!IsAtEnd())
+            {
+                var character = Advance();
+                switch (character)
+                {
+                    // Skip unnecessary characters and do not tokenize them.
+                    case ' ': break;
+                    case '\r': break;
+                    case '\t': break;
+                }
+            }
+
             return tokens.ToArray();
         }
 
