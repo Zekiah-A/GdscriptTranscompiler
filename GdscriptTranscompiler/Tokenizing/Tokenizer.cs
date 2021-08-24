@@ -31,6 +31,7 @@ namespace GdscriptTranscompiler.Tokenizing
                 {
                     // Skip unnecessary characters and do not tokenize them.
                     case ' ': break;
+                    case ';': break;
                     case '\r': break;
                     case '\t': break;
                 }
