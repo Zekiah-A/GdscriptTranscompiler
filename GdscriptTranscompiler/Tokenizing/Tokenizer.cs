@@ -35,7 +35,10 @@ namespace GdscriptTranscompiler.Tokenizing
                     case ' ': break;
                     case ';': break;
                     case '\r': break;
-                    case '\t': break;
+
+                    case '\t':
+                        tokens.Add(new Token(TokenType.Indent));
+                        break;
 
                     case >= 'a' and <= 'z' or >= 'A' and <= 'Z':
                         {

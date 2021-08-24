@@ -12,7 +12,7 @@ namespace CommandLine
             {
                 var tokens = new Tokenizer(Console.ReadLine()).Run();
                 foreach (var item in tokens)
-                    System.Console.WriteLine(item);
+                    Console.WriteLine(item);
             }
         }
     }
