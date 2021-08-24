@@ -26,7 +26,9 @@ namespace GdscriptTranscompiler.Tokenizing
 
             while (!IsAtEnd())
             {
+                start = current;
                 var character = Advance();
+
                 switch (character)
                 {
                     // Skip unnecessary characters and do not tokenize them.
@@ -34,6 +36,21 @@ namespace GdscriptTranscompiler.Tokenizing
                     case ';': break;
                     case '\r': break;
                     case '\t': break;
+
+                    case >= 'a' and <= 'z' or >= 'A' and <= 'Z':
+                        {
+                            while (char.IsDigit(Peek()) || char.IsLetter(Peek()) || Match('_'))
+                                Advance();
+
+                            var identifier = source[start..current];
+
+                            if (ReservedIdentifiers.Keywords.TryGetValue(identifier, out var identifierType))
+                                tokens.Add(new Token(identifierType, identifier));
+                            else
+                                tokens.Add(new Token(TokenType.Identifier, identifier));
+
+                            break;
+                        }
                 }
             }
 
