@@ -40,6 +40,14 @@ namespace GdscriptTranscompiler.Tokenizing
                         tokens.Add(new Token(TokenType.Indent));
                         break;
 
+                    case '(' or ')' or ',' or '.' or '-' or '+' or '*' or '&':
+                        {
+                            if (ReservedIdentifiers.SingleCharacters.TryGetValue(character, out var characterType))
+                                tokens.Add(new Token(characterType, character));
+
+                            break;
+                        }
+
                     case >= 'a' and <= 'z' or >= 'A' and <= 'Z':
                         {
                             while (char.IsDigit(Peek()) || char.IsLetter(Peek()) || Match('_'))

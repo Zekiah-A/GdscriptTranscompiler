@@ -28,5 +28,18 @@ namespace GdscriptTranscompiler.Tokenizing
                 { "preload", TokenType.Preload },
                 { "yield", TokenType.Yield },
             };
+
+        public static readonly IReadOnlyDictionary<char, TokenType> SingleCharacters =
+            new Dictionary<char, TokenType>
+            {
+                { '(', TokenType.LeftParentheses },
+                { ')', TokenType.RightParentheses },
+                { ',', TokenType.Comma },
+                { '.', TokenType.Dot },
+                { '-', TokenType.Minus },
+                { '+', TokenType.Plus },
+                { '*', TokenType.Star },
+                { '%', TokenType.Modulo }
+            };
     }
 }
