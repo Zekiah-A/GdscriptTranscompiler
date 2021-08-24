@@ -37,8 +37,10 @@ namespace GdscriptTranscompiler.Tokenizing
                     case '\r': break;
 
                     case '\t':
-                        tokens.Add(new Token(TokenType.Indent));
-                        break;
+                        {
+                            tokens.Add(new Token(TokenType.Indent));
+                            break;
+                        }
 
                     case '(' or ')' or ',' or '.' or '-' or '+' or '*' or '&':
                         {
