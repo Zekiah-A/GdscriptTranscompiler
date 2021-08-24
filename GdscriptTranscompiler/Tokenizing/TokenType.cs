@@ -2,5 +2,29 @@
 {
     public enum TokenType
     {
+        If,
+        Is,
+        Pi,
+        Tau,
+        Inf,
+        Nan,
+        For,
+        Var,
+        Pass,
+        Else,
+        Self,
+        Elif,
+        Func,
+        Break,
+        While,
+        Yield,
+        Const,
+        Return,
+        Export,
+        Signal,
+        OnReady,
+        Extends,
+        Preload,
+        Continue
     }
 }
